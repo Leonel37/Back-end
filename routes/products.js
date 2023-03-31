@@ -29,11 +29,13 @@ router.post('/', async function(req, res, next) {
 //Editar 
 router.put('/', async function(req, res, next) {
 
-  const filter = {id: req.query.id}; 
-  const update = {name: req.query.name,
-    description: req.query.description,
-    price: req.query.price,
-    stock: req.query.stock,}; 
+  const filter = {id: req.body.id}; 
+  const update = {name: req.body.name,
+    description: req.body.description,
+    price: req.body.price,
+   }; 
+
+   console.log(update)
 
   const resultado = await productModel.findOneAndUpdate(filter, update,
     {new : true,
